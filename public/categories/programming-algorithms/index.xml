@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming, Algorithms on Techjournal</title>
+    <link>http://localhost:1313/categories/programming-algorithms/</link>
+    <description>Recent content in Programming, Algorithms on Techjournal</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/programming-algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Machine Learning for Trading: Build a Decision Tree Learner</title>
+      <link>http://localhost:1313/posts/machine-learning-for-trading-build-a-decision-tree-learner/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/machine-learning-for-trading-build-a-decision-tree-learner/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;The focus of this article is building a decision tree learner and evaluate its performance in different settings and finally compare it with a linear regression learner. The main learning goals are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Supervised Learning:&lt;/strong&gt; Understanding what is supervised learning and how to train, query and evaluate its performance&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Decision Tree:&lt;/strong&gt; Learning how to build a decision tree and use it in different configurations&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;supervised-learning&#34;&gt;Supervised Learning&lt;/h2&gt;&#xA;&lt;p&gt;Consider a series of predictor(here predictor just means inputs) measurements xi,i=1,2,…,Nxi​,i=1,2,…,N where for each predictor there is an associated response measurement yiyi​. From a statistical point of view the goal is to usually find a fit such that we can relate the predictors to the responses as accurately as possible. This is interesting because it allows to understand the relationships between the predictors and responses and also we can use such a fit to make predictions of future values for responses given historical predictor data. Such problems where there is a series of predictor measurements and an accompanying series of response measurements belong to the supervised learning problems category.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Machine Learning for Trading: Optimize Portfolio</title>
+      <link>http://localhost:1313/posts/machine-learning-for-trading-optimize-portfolio/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/machine-learning-for-trading-optimize-portfolio/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This article builds upon Part 1 and shows how portfolio stock allocations can be optimized using Python SciPy library, the primary learning goals are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Portfolio Optimization:&lt;/strong&gt; Starting with an initial guess, learn how to optimize stock allocations for a portfolio and compare the results with the non-optimized case.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;problem-statement-and-solution&#34;&gt;Problem Statement and Solution&lt;/h2&gt;&#xA;&lt;p&gt;The goal is to use an initial guess for stock allocations and then optimize the portfolio for Sharpe ratio. Starting with a few important points to frame the problem.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

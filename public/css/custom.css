@@ -1,0 +1,10 @@
+/* Prevent header/menu from being hidden by theme JS */
+.header,
+#header-post,
+#nav,
+#menu {
+  display: block !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}

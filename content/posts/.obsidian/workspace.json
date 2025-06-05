@@ -1,0 +1,193 @@
+{
+  "main": {
+    "id": "340595634839eed6",
+    "type": "split",
+    "children": [
+      {
+        "id": "6a184794967d0f97",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "975c6133340f13ea",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "about/index.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "index"
+            }
+          },
+          {
+            "id": "171b5e4138dd8106",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "posts/machine-learning-for-trading-build-a-decision-tree-learner.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "machine-learning-for-trading-build-a-decision-tree-learner"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "df76e0103b91f974",
+    "type": "split",
+    "children": [
+      {
+        "id": "eb2346824481656a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bd59f6079dc5cd80",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "c5d7134c8368f385",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "8e97d80e3f3a8754",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "7132e36cb03d889d",
+    "type": "split",
+    "children": [
+      {
+        "id": "9880a1758e37b152",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "17fe0cb9e16e5163",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "posts/machine-learning-for-trading-build-a-decision-tree-learner.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for machine-learning-for-trading-build-a-decision-tree-learner"
+            }
+          },
+          {
+            "id": "6e165b2eb3962d34",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "posts/machine-learning-for-trading-build-a-decision-tree-learner.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from machine-learning-for-trading-build-a-decision-tree-learner"
+            }
+          },
+          {
+            "id": "8be1f10e286c1f55",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "acbd55bfb0055aed",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "posts/machine-learning-for-trading-build-a-decision-tree-learner.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of machine-learning-for-trading-build-a-decision-tree-learner"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "171b5e4138dd8106",
+  "lastOpenFiles": [
+    "about/index.md",
+    "posts/machine-learning-for-trading-build-a-decision-tree-learner.md",
+    "posts",
+    "about"
+  ]
+}

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Machine Learning for Trading: Optimize Portfolio | Techjournal</title>
+  <link rel = 'canonical' href = 'http://localhost:1313/posts/machine-learning-for-trading-optimize-portfolio/'>
+  <meta name="description" content="An Engineer&#39;s Path in the World of Infrastructure, Math and Computer Science">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:url" content="http://localhost:1313/posts/machine-learning-for-trading-optimize-portfolio/">
+  <meta property="og:site_name" content="Techjournal">
+  <meta property="og:title" content="Machine Learning for Trading: Optimize Portfolio">
+  <meta property="og:description" content="Introduction This article builds upon Part 1 and shows how portfolio stock allocations can be optimized using Python SciPy library, the primary learning goals are:
+Portfolio Optimization: Starting with an initial guess, learn how to optimize stock allocations for a portfolio and compare the results with the non-optimized case. Problem Statement and Solution The goal is to use an initial guess for stock allocations and then optimize the portfolio for Sharpe ratio. Starting with a few important points to frame the problem.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-05-04T00:00:00+00:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Machine Learning for Trading: Optimize Portfolio">
+  <meta name="twitter:description" content="Introduction This article builds upon Part 1 and shows how portfolio stock allocations can be optimized using Python SciPy library, the primary learning goals are:
+Portfolio Optimization: Starting with an initial guess, learn how to optimize stock allocations for a portfolio and compare the results with the non-optimized case. Problem Statement and Solution The goal is to use an initial guess for stock allocations and then optimize the portfolio for Sharpe ratio. Starting with a few important points to frame the problem.">
+
+  
+  
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/styles.bd3be846f9c8f08e34b3bfdb0414e55b49a4d301ea57cc9cf040d03a4a7cdd342a9f3229c8f2030e8478e8bdb1e4c093b2c85bbda378c35de052031a8019301a.css" integrity="sha512-vTvoRvnI8I40s7/bBBTlW0mk0wHqV8yc8EDQOkp83TQqnzIpyPIDDoR46L2x5MCTsshbvaN4w13gUgMagBkwGg=="> 
+
+  
+   <link rel="stylesheet" href="http://localhost:1313/css/custom.css"> 
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="http://localhost:1313/images/favicon.ico" />
+
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">All posts</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" http://localhost:1313/about/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="http://localhost:1313/posts/machine-learning-for-trading-build-a-decision-tree-learner/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f&text=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f&title=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f&is_video=false&description=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio&body=Check out this article: http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f&title=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f&title=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f&name=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio&description=%3ch2%20id%3d%22introduction%22%3eIntroduction%3c%2fh2%3e%0a%3cp%3eThis%20article%20builds%20upon%20Part%201%20and%20shows%20how%20portfolio%20stock%20allocations%20can%20be%20optimized%20using%20Python%20SciPy%20library%2c%20the%20primary%20learning%20goals%20are%3a%3c%2fp%3e%0a%3cul%3e%0a%3cli%3e%3cstrong%3ePortfolio%20Optimization%3a%3c%2fstrong%3e%c2%a0Starting%20with%20an%20initial%20guess%2c%20learn%20how%20to%20optimize%20stock%20allocations%20for%20a%20portfolio%20and%20compare%20the%20results%20with%20the%20non-optimized%20case.%3c%2fli%3e%0a%3c%2ful%3e%0a%3ch2%20id%3d%22problem-statement-and-solution%22%3eProblem%20Statement%20and%20Solution%3c%2fh2%3e%0a%3cp%3eThe%20goal%20is%20to%20use%20an%20initial%20guess%20for%20stock%20allocations%20and%20then%20optimize%20the%20portfolio%20for%20Sharpe%20ratio.%20Starting%20with%20a%20few%20important%20points%20to%20frame%20the%20problem.%3c%2fp%3e" aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f&t=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#problem-statement-and-solution">Problem Statement and Solution</a></li>
+  </ul>
+</nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Machine Learning for Trading: Optimize Portfolio
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2025-05-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-04</time>
+          
+        </div>
+        
+        
+        
+        
+      </div>
+    </header>
+
+    
+    <div class="content" itemprop="articleBody">
+      <h2 id="introduction">Introduction</h2>
+<p>This article builds upon Part 1 and shows how portfolio stock allocations can be optimized using Python SciPy library, the primary learning goals are:</p>
+<ul>
+<li><strong>Portfolio Optimization:</strong> Starting with an initial guess, learn how to optimize stock allocations for a portfolio and compare the results with the non-optimized case.</li>
+</ul>
+<h2 id="problem-statement-and-solution">Problem Statement and Solution</h2>
+<p>The goal is to use an initial guess for stock allocations and then optimize the portfolio for Sharpe ratio. Starting with a few important points to frame the problem.</p>
+<ul>
+<li>For the initial guess given there are N symbols, allocate to each symbol 1/N stocks</li>
+<li>During optimization ensure the sum of allocations won&rsquo;t exceed 1 (bounds)</li>
+<li>When allocating stocks it is not possible to allocate more than 1 (constraints)</li>
+<li>For all purposes of calculations we assume a daily sampling frequency of 252, and a risk free rate of return of 0</li>
+</ul>
+<p>The idea here is to write a function that given certain inputs will calculate the Sharpe ratio, then ask SciPy optimization module to call this function repeatedly until an optimal value is reached. From previous article we know maximizing Sharpe ratio is desired since it means the standard deviation of the daily value of the portfolio is minimum, thus low risk while the expected value of the returns is maximum.</p>
+<p>The problem can then be defined as:</p>
+<ul>
+<li>Provide a function to minimize</li>
+<li>Provide an initial guess</li>
+<li>Call the optimizer</li>
+</ul>
+<p>However, if we ask Python to minimize the Sharpe ratio it will try to find the maximum value by maximizing the denominator, which will be the exact opposite of our goal, since that would mean finding a minimum value for Sharpe ratio where the standard deviation is highest. To overcome this problem, instead of calling our optimizer to minimize Sharpe ratio we call it to minimize Sharpe ratio multiplied by -1.</p>
+<p><img src="images/image-5.png" alt=""></p>
+<p>Now, the solution. We need a function to call repeatedly to compute the Sharpe ratio. Using the material from previous article, we can define such a function easily.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_sharpe_ratio</span>(allocs, prices, sv<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, rfr<span style="color:#f92672">=</span><span style="color:#ae81ff">0.</span>, sf<span style="color:#f92672">=</span><span style="color:#ae81ff">252.</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Compute Sharpe ratio
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        allocs (list): A list of stock allocations, must sum to 1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        prices (DataFrame): A n*m pandas dataframe where n is an index of dates and m is a set of stock symbol prices
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        sv (integer): Starting value of the portfolio, for Sharpe ratio calculations the actual value does not matter, since it gets normalized
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        rfr (float): Risk free return rate
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        sf (float): Sampling frequency, daily=252, weekly=52, monthly=12
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    port_val <span style="color:#f92672">=</span> compute_portfolio_daily_value(prices, allocs, sv)
+</span></span><span style="display:flex;"><span>    daily_returns <span style="color:#f92672">=</span> compute_portfolio_daily_returns(port_val)
+</span></span><span style="display:flex;"><span>    sr <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sqrt(sf) <span style="color:#f92672">*</span> (daily_returns <span style="color:#f92672">-</span> rfr)<span style="color:#f92672">.</span>mean() <span style="color:#f92672">/</span> daily_returns<span style="color:#f92672">.</span>std()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> sr
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">find_optimized_allocations</span>(init_allocs, prices):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Find optimized allocations
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        init_allocs (list): A list of initial stock allocations, must sum to 1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        prices (DataFrame): A n*m pandas dataframe where n is an index of dates and m is a set of stock symbol prices
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_compute_sharpe_ratio</span>(allocs, prices):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> compute_sharpe_ratio(allocs, prices) <span style="color:#f92672">*</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#75715e"># we multiply by -1 so that SciPy finds the maximum</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    constraints <span style="color:#f92672">=</span> (
+</span></span><span style="display:flex;"><span>        {<span style="color:#e6db74">&#39;type&#39;</span>: <span style="color:#e6db74">&#39;eq&#39;</span>, <span style="color:#e6db74">&#39;fun&#39;</span>: <span style="color:#66d9ef">lambda</span> x: np<span style="color:#f92672">.</span>sum(x) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>}
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    bounds <span style="color:#f92672">=</span> [(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(len(init_allocs))]
+</span></span><span style="display:flex;"><span>    optimized_allocs <span style="color:#f92672">=</span> scpo<span style="color:#f92672">.</span>minimize(
+</span></span><span style="display:flex;"><span>        _compute_sharpe_ratio,
+</span></span><span style="display:flex;"><span>        init_allocs,
+</span></span><span style="display:flex;"><span>        args<span style="color:#f92672">=</span>(prices, ),
+</span></span><span style="display:flex;"><span>        method<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;SLSQP&#39;</span>,
+</span></span><span style="display:flex;"><span>        constraints<span style="color:#f92672">=</span>constraints,
+</span></span><span style="display:flex;"><span>        bounds<span style="color:#f92672">=</span>bounds
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> optimized_allocs
+</span></span></code></pre></div><p>Similar to previous article we put everything together and call our optimization code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> datetime <span style="color:#66d9ef">as</span> dt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> util <span style="color:#f92672">import</span> get_data
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> scipy.optimize <span style="color:#66d9ef">as</span> scpo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> optimize_something.assess_portfolio <span style="color:#f92672">import</span> compute_portfolio_daily_returns, compute_portfolio_daily_value, compute_portfolio_stats
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_sharpe_ratio</span>(allocs, prices, sv<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, rfr<span style="color:#f92672">=</span><span style="color:#ae81ff">0.</span>, sf<span style="color:#f92672">=</span><span style="color:#ae81ff">252.</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Compute Sharpe ratio
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        allocs (list): A list of stock allocations, must sum to 1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        prices (DataFrame): A n*m pandas dataframe where n is an index of dates and m is a set of stock symbol prices
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        sv (integer): Starting value of the portfolio, for Sharpe ratio calculations the actual value does not matter, since it gets normalized
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        rfr (float): Risk free return rate
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        sf (float): Sampling frequency, daily=252, weekly=52, monthly=12
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    port_val <span style="color:#f92672">=</span> compute_portfolio_daily_value(prices, allocs, sv)
+</span></span><span style="display:flex;"><span>    daily_returns <span style="color:#f92672">=</span> compute_portfolio_daily_returns(port_val)
+</span></span><span style="display:flex;"><span>    sr <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sqrt(sf) <span style="color:#f92672">*</span> (daily_returns <span style="color:#f92672">-</span> rfr)<span style="color:#f92672">.</span>mean() <span style="color:#f92672">/</span> daily_returns<span style="color:#f92672">.</span>std()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> sr
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">find_optimized_allocations</span>(init_allocs, prices):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Find optimized allocations
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        init_allocs (list): A list of initial stock allocations, must sum to 1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        prices (DataFrame): A n*m pandas dataframe where n is an index of dates and m is a set of stock symbol prices
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_compute_sharpe_ratio</span>(allocs, prices):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> compute_sharpe_ratio(allocs, prices) <span style="color:#f92672">*</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#75715e"># we multiply by -1 so that SciPy finds the maximum</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    constraints <span style="color:#f92672">=</span> (
+</span></span><span style="display:flex;"><span>        {<span style="color:#e6db74">&#39;type&#39;</span>: <span style="color:#e6db74">&#39;eq&#39;</span>, <span style="color:#e6db74">&#39;fun&#39;</span>: <span style="color:#66d9ef">lambda</span> x: np<span style="color:#f92672">.</span>sum(x) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>}
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    bounds <span style="color:#f92672">=</span> [(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(len(init_allocs))]
+</span></span><span style="display:flex;"><span>    optimized_allocs <span style="color:#f92672">=</span> scpo<span style="color:#f92672">.</span>minimize(
+</span></span><span style="display:flex;"><span>        _compute_sharpe_ratio,
+</span></span><span style="display:flex;"><span>        init_allocs,
+</span></span><span style="display:flex;"><span>        args<span style="color:#f92672">=</span>(prices, ),
+</span></span><span style="display:flex;"><span>        method<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;SLSQP&#39;</span>,
+</span></span><span style="display:flex;"><span>        constraints<span style="color:#f92672">=</span>constraints,
+</span></span><span style="display:flex;"><span>        bounds<span style="color:#f92672">=</span>bounds
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> optimized_allocs
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">optimize_portfolio</span>(
+</span></span><span style="display:flex;"><span>    symbols,
+</span></span><span style="display:flex;"><span>    sd<span style="color:#f92672">=</span>dt<span style="color:#f92672">.</span>datetime(<span style="color:#ae81ff">2008</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>    ed<span style="color:#f92672">=</span>dt<span style="color:#f92672">.</span>datetime(<span style="color:#ae81ff">2009</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>    gen_plot<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Optimize a portfolio of stocks allocations
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        symbols (list): A list of stock symbols
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        sd (datetime): Starting datetime
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ed (datetime): Ending datetime
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        gen_plot (bool): Toggle to generate plot
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    prices_all <span style="color:#f92672">=</span> get_data(symbols<span style="color:#f92672">=</span>symbols, dates<span style="color:#f92672">=</span>(sd, ed))
+</span></span><span style="display:flex;"><span>    prices <span style="color:#f92672">=</span> prices_all[symbols]
+</span></span><span style="display:flex;"><span>    prices_SPY <span style="color:#f92672">=</span> prices_all[<span style="color:#e6db74">&#39;SPY&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    init_allocs <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span> <span style="color:#f92672">/</span> len(symbols) <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(len(symbols))]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># find the allocations for the optimal portfolio</span>
+</span></span><span style="display:flex;"><span>    allocs <span style="color:#f92672">=</span> find_optimized_allocations(init_allocs, prices)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Get daily portfolio value and returns</span>
+</span></span><span style="display:flex;"><span>    port_val <span style="color:#f92672">=</span> compute_portfolio_daily_value(prices, allocs<span style="color:#f92672">.</span>x, sv<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    daily_returns <span style="color:#f92672">=</span> compute_portfolio_daily_returns(port_val)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Get portfolio statistics (note: std_daily_ret = volatility)</span>
+</span></span><span style="display:flex;"><span>    cr, adr, sddr, sr <span style="color:#f92672">=</span> compute_portfolio_stats(port_val, daily_returns, sf<span style="color:#f92672">=</span><span style="color:#ae81ff">252</span>, rfr<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Compare daily portfolio value with SPY using a normalized plot</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> gen_plot:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># add code to plot here</span>
+</span></span><span style="display:flex;"><span>        df_temp <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat(
+</span></span><span style="display:flex;"><span>            [(port_val <span style="color:#f92672">/</span> port_val[<span style="color:#ae81ff">0</span>]), (prices_SPY <span style="color:#f92672">/</span> prices_SPY[<span style="color:#ae81ff">0</span>])], keys<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;Portfolio&#34;</span>, <span style="color:#e6db74">&#34;SPY&#34;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        df_temp<span style="color:#f92672">.</span>plot()
+</span></span><span style="display:flex;"><span>        plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Normalized Optimized Portfolio vs SPY&#34;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;Date&#34;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Normalized Value&#34;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;./optimized.png&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> allocs<span style="color:#f92672">.</span>x, cr, adr, sddr, sr
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    start_date <span style="color:#f92672">=</span> dt<span style="color:#f92672">.</span>datetime(<span style="color:#ae81ff">2008</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    end_date <span style="color:#f92672">=</span> dt<span style="color:#f92672">.</span>datetime(<span style="color:#ae81ff">2009</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    symbols <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;IBM&#34;</span>, <span style="color:#e6db74">&#34;X&#34;</span>, <span style="color:#e6db74">&#34;GLD&#34;</span>, <span style="color:#e6db74">&#34;JPM&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Assess the portfolio  		  	   		  	  		  		  		    	 		 		   		 		  </span>
+</span></span><span style="display:flex;"><span>    allocations, cr, adr, sddr, sr <span style="color:#f92672">=</span> optimize_portfolio(
+</span></span><span style="display:flex;"><span>        sd<span style="color:#f92672">=</span>start_date, ed<span style="color:#f92672">=</span>end_date, symbols<span style="color:#f92672">=</span>symbols, gen_plot<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Print statistics  		  	   		  	  		  		  		    	 		 		   		 		  </span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Start Date: </span><span style="color:#e6db74">{</span>start_date<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;End Date: </span><span style="color:#e6db74">{</span>end_date<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Symbols: </span><span style="color:#e6db74">{</span>symbols<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Allocations:</span><span style="color:#e6db74">{</span>allocations<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Sharpe Ratio: </span><span style="color:#e6db74">{</span>sr<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Volatility (stdev of daily returns): </span><span style="color:#e6db74">{</span>sddr<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Average Daily Return: </span><span style="color:#e6db74">{</span>adr<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Cumulative Return: </span><span style="color:#e6db74">{</span>cr<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>Running the optimization for the sample data in the code above generates the following chart. We can see the effect of the optimization where the price of SPY has plunged while our Portfolio increased in value.</p>
+<p><img src="images/optimized.png" alt=""></p>
+<p>What is even more interesting is to compare the case of an optimized stock allocation with a random stock allocation. In the code example below, the compare function does exactly that. It is clear the optimized stock allocations is performing much better compared to a random allocation of stock.</p>
+<p><img src="images/compare.png" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compare</span>(
+</span></span><span style="display:flex;"><span>    symbols,
+</span></span><span style="display:flex;"><span>    rand_allocs,
+</span></span><span style="display:flex;"><span>    sd<span style="color:#f92672">=</span>dt<span style="color:#f92672">.</span>datetime(<span style="color:#ae81ff">2008</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>    ed<span style="color:#f92672">=</span>dt<span style="color:#f92672">.</span>datetime(<span style="color:#ae81ff">2009</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>    gen_plot<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    prices_all <span style="color:#f92672">=</span> get_data(symbols<span style="color:#f92672">=</span>symbols, dates<span style="color:#f92672">=</span>(sd, ed))
+</span></span><span style="display:flex;"><span>    prices <span style="color:#f92672">=</span> prices_all[symbols]
+</span></span><span style="display:flex;"><span>    prices_SPY <span style="color:#f92672">=</span> prices_all[<span style="color:#e6db74">&#39;SPY&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># the optimum allocations</span>
+</span></span><span style="display:flex;"><span>    init_allocs <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span> <span style="color:#f92672">/</span> len(symbols) <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(len(symbols))]
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># find the allocations for the optimal portfolio</span>
+</span></span><span style="display:flex;"><span>    opt_allocs <span style="color:#f92672">=</span> find_optimized_allocations(init_allocs, prices)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Get daily portfolio value and returns</span>
+</span></span><span style="display:flex;"><span>    opt_port_val <span style="color:#f92672">=</span> compute_portfolio_daily_value(prices, opt_allocs<span style="color:#f92672">.</span>x, sv<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    opt_daily_returns <span style="color:#f92672">=</span> compute_portfolio_daily_returns(opt_port_val)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Get portfolio statistics (note: std_daily_ret = volatility)</span>
+</span></span><span style="display:flex;"><span>    opt_cr, opt_adr, opt_sddr, opt_sr <span style="color:#f92672">=</span> compute_portfolio_stats(opt_port_val, opt_daily_returns, sf<span style="color:#f92672">=</span><span style="color:#ae81ff">252</span>, rfr<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># random allocations</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Get daily portfolio value and returns</span>
+</span></span><span style="display:flex;"><span>    rand_port_val <span style="color:#f92672">=</span> compute_portfolio_daily_value(prices, rand_allocs, sv<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    rand_daily_returns <span style="color:#f92672">=</span> compute_portfolio_daily_returns(rand_port_val)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Get portfolio statistics (note: std_daily_ret = volatility)</span>
+</span></span><span style="display:flex;"><span>    rand_cr, rand_adr, rand_sddr, rand_sr <span style="color:#f92672">=</span> compute_portfolio_stats(rand_port_val, rand_daily_returns, sf<span style="color:#f92672">=</span><span style="color:#ae81ff">252</span>, rfr<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> gen_plot:
+</span></span><span style="display:flex;"><span>        df_temp <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat(
+</span></span><span style="display:flex;"><span>            [
+</span></span><span style="display:flex;"><span>                (opt_port_val <span style="color:#f92672">/</span> opt_port_val[<span style="color:#ae81ff">0</span>]),
+</span></span><span style="display:flex;"><span>                (rand_port_val <span style="color:#f92672">/</span> rand_port_val[<span style="color:#ae81ff">0</span>]),
+</span></span><span style="display:flex;"><span>                (prices_SPY <span style="color:#f92672">/</span> prices_SPY[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            keys<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Portfolio with Optimized Allocations&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Portfolio with Random Allocations&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;SPY&#34;</span>
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        df_temp<span style="color:#f92672">.</span>plot()
+</span></span><span style="display:flex;"><span>        plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Optimized and Non-Optimized Portfolio Value vs SPY&#34;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;Date&#34;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Normalized Value&#34;</span>)
+</span></span><span style="display:flex;"><span>        plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;./compare.png&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;random&#39;</span>: dict(
+</span></span><span style="display:flex;"><span>            rand_allocs<span style="color:#f92672">=</span>rand_allocs,
+</span></span><span style="display:flex;"><span>            rand_cr<span style="color:#f92672">=</span>rand_cr,
+</span></span><span style="display:flex;"><span>            rand_adr<span style="color:#f92672">=</span>rand_adr,
+</span></span><span style="display:flex;"><span>            rand_sr<span style="color:#f92672">=</span>rand_sr
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;optimized&#39;</span>: dict(
+</span></span><span style="display:flex;"><span>            opt_allocs<span style="color:#f92672">=</span>opt_allocs,
+</span></span><span style="display:flex;"><span>            opt_cr<span style="color:#f92672">=</span>opt_cr,
+</span></span><span style="display:flex;"><span>            opt_adr<span style="color:#f92672">=</span>opt_adr,
+</span></span><span style="display:flex;"><span>            opt_sr<span style="color:#f92672">=</span>opt_sr
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div>
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">All posts</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#problem-statement-and-solution">Problem Statement and Solution</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f&text=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f&title=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f&is_video=false&description=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio&body=Check out this article: http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f&title=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f&title=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f&name=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio&description=%3ch2%20id%3d%22introduction%22%3eIntroduction%3c%2fh2%3e%0a%3cp%3eThis%20article%20builds%20upon%20Part%201%20and%20shows%20how%20portfolio%20stock%20allocations%20can%20be%20optimized%20using%20Python%20SciPy%20library%2c%20the%20primary%20learning%20goals%20are%3a%3c%2fp%3e%0a%3cul%3e%0a%3cli%3e%3cstrong%3ePortfolio%20Optimization%3a%3c%2fstrong%3e%c2%a0Starting%20with%20an%20initial%20guess%2c%20learn%20how%20to%20optimize%20stock%20allocations%20for%20a%20portfolio%20and%20compare%20the%20results%20with%20the%20non-optimized%20case.%3c%2fli%3e%0a%3c%2ful%3e%0a%3ch2%20id%3d%22problem-statement-and-solution%22%3eProblem%20Statement%20and%20Solution%3c%2fh2%3e%0a%3cp%3eThe%20goal%20is%20to%20use%20an%20initial%20guess%20for%20stock%20allocations%20and%20then%20optimize%20the%20portfolio%20for%20Sharpe%20ratio.%20Starting%20with%20a%20few%20important%20points%20to%20frame%20the%20problem.%3c%2fp%3e" aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fmachine-learning-for-trading-optimize-portfolio%2f&t=Machine%20Learning%20for%20Trading%3a%20Optimize%20Portfolio" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2025  Techjournal 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">All posts</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+  
+
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</html>
