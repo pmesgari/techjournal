@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = "/"
 languageCode = 'en-us'
 title = 'Techjournal'
 theme = "cactus"
@@ -8,6 +8,7 @@ description = "An Engineer's Path in the World of Infrastructure, Math and Compu
 mathjax = true
 css = ["css/custom.css"]
 logo = "images/quill-pen.png"
+postsOnHomePage = 10
 
 [[menu.main]]
 name = "Home"

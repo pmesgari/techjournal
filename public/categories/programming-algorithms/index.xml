@@ -2,25 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming, Algorithms on Techjournal</title>
-    <link>http://localhost:1313/categories/programming-algorithms/</link>
+    <link>//localhost:1313/categories/programming-algorithms/</link>
     <description>Recent content in Programming, Algorithms on Techjournal</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/programming-algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/categories/programming-algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Part 1: The World of Subsequences, Longest Increasing Subsequence</title>
+      <link>//localhost:1313/posts/subsequences-part-1/</link>
+      <pubDate>Sat, 27 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/subsequences-part-1/</guid>
+      <description>&lt;p&gt;Awhile ago I came across an interesting programming exercise at work. There is an external system that is integrated with our application. There are several API calls being made to it, one of which requires setting a password field. The external system enforces a set of rules for acceptable passwords. There are the usual rules such as a password cannot be the user&amp;rsquo;s phone number, or the reversed old password and so on. But there is a rule that caught my attention, it states:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Part 2: The World of Subsequences, Longest Increasing Subsequence</title>
+      <link>//localhost:1313/posts/subsequences-part-2/</link>
+      <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/subsequences-part-2/</guid>
+      <description>&lt;p&gt;In the previous article we showed the algorithm for finding the longest continuously increasing subsequence. Now, we try to find the longest increasing subsequence and drop the contiguous requirement. First we begin with a formal definition of the problem.&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Description:&lt;/strong&gt; Given a sequence of n elements a1 a2 a3…ana1​ a2​ a3​…an​, find the longest continuously increasing &lt;em&gt;subsequence&lt;/em&gt;. A &lt;em&gt;subsequence&lt;/em&gt; is any subset of the elements taken in order, of the form ai1 ai2…aikai1​​ ai2​​…aik​​ where 1≤i1&amp;lt;i2&amp;lt;i3…ik≤n1≤i1​&amp;lt;i2​&amp;lt;i3​…ik​≤n. An &lt;em&gt;increasing subsequence&lt;/em&gt; is one in which the numbers are getting strictly larger, that is for every aiai​ in the subsequence we have ai&amp;gt;ai−1ai​&amp;gt;ai−1​.  &lt;!-- raw HTML omitted --&gt;  &lt;!-- raw HTML omitted --&gt;&lt;strong&gt;Input:&lt;/strong&gt; A sequence of numbers in the form a1 a2 a3…ana1​ a2​ a3​…an​  &lt;!-- raw HTML omitted --&gt;&lt;strong&gt;Output:&lt;/strong&gt; Length of the longest continuously increasing subsequence&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;Removing the contiguous requirement brings some interesting challenges in solving the longest increasing subsequence problem. We first begin with the mathematical preliminaries.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Machine Learning for Trading: Build a Decision Tree Learner</title>
-      <link>http://localhost:1313/posts/machine-learning-for-trading-build-a-decision-tree-learner/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/machine-learning-for-trading-build-a-decision-tree-learner/</guid>
+      <link>//localhost:1313/posts/machine-learning-for-trading-build-a-decision-tree-learner/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/machine-learning-for-trading-build-a-decision-tree-learner/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;The focus of this article is building a decision tree learner and evaluate its performance in different settings and finally compare it with a linear regression learner. The main learning goals are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Supervised Learning:&lt;/strong&gt; Understanding what is supervised learning and how to train, query and evaluate its performance&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Decision Tree:&lt;/strong&gt; Learning how to build a decision tree and use it in different configurations&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;supervised-learning&#34;&gt;Supervised Learning&lt;/h2&gt;&#xA;&lt;p&gt;Consider a series of predictor(here predictor just means inputs) measurements xi,i=1,2,…,Nxi​,i=1,2,…,N where for each predictor there is an associated response measurement yiyi​. From a statistical point of view the goal is to usually find a fit such that we can relate the predictors to the responses as accurately as possible. This is interesting because it allows to understand the relationships between the predictors and responses and also we can use such a fit to make predictions of future values for responses given historical predictor data. Such problems where there is a series of predictor measurements and an accompanying series of response measurements belong to the supervised learning problems category.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Machine Learning for Trading: Optimize Portfolio</title>
-      <link>http://localhost:1313/posts/machine-learning-for-trading-optimize-portfolio/</link>
-      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/machine-learning-for-trading-optimize-portfolio/</guid>
+      <link>//localhost:1313/posts/machine-learning-for-trading-optimize-portfolio/</link>
+      <pubDate>Sun, 11 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/machine-learning-for-trading-optimize-portfolio/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This article builds upon Part 1 and shows how portfolio stock allocations can be optimized using Python SciPy library, the primary learning goals are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Portfolio Optimization:&lt;/strong&gt; Starting with an initial guess, learn how to optimize stock allocations for a portfolio and compare the results with the non-optimized case.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;problem-statement-and-solution&#34;&gt;Problem Statement and Solution&lt;/h2&gt;&#xA;&lt;p&gt;The goal is to use an initial guess for stock allocations and then optimize the portfolio for Sharpe ratio. Starting with a few important points to frame the problem.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Machine Learning for Trading: Portfolio Analysis</title>
+      <link>//localhost:1313/posts/machine-learning-for-trading-portfolio-analysis/</link>
+      <pubDate>Sun, 11 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/machine-learning-for-trading-portfolio-analysis/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This article is about using Python to analyze portfolio stocks and allocations. The primary learning goals are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Portfolio Analysis&lt;/strong&gt;: Given a portfolio of stocks implement several metrics to evaluate the performance of a portfolio&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;portfolio-analysis&#34;&gt;Portfolio Analysis&lt;/h2&gt;&#xA;&lt;p&gt;There are several metrics that can be used to evaluate the performance of a portfolio. Here we focus on the metrics below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Daily Returns:&lt;/strong&gt; How much a price went up or down on a particular day&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Cumulative Return:&lt;/strong&gt; A measure of how much the value of the portfolio has gone up from the beginning to the end&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Average Daily Return:&lt;/strong&gt; Simply the mean of the daily returns&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Standard Deviation of Daily Return:&lt;/strong&gt; Simply the standard deviation of the daily returns&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Sharpe Ratio:&lt;/strong&gt; Risk adjusted return&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Sharpe Ratio (SR)&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mario</title>
+      <link>//localhost:1313/posts/mario/</link>
+      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/mario/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;CS50 is one of the most well known and prestigious courses on computer science. The course is offered by Harvard University faculty and based on Edx it has already more than 2.8 millions enrolled students.&lt;/p&gt;&#xA;&lt;p&gt;I was going through their material on the &lt;a href=&#34;https://cs50.harvard.edu/x/2021/&#34;&gt;CS50x&lt;/a&gt; &lt;a href=&#34;https://cs50.harvard.edu/x/2021/&#34;&gt;website&lt;/a&gt;, and I came across an interesting Python problem. Citing from the course materials in &lt;a href=&#34;https://cs50.harvard.edu/x/2021/psets/6/&#34;&gt;Problem Set 6&lt;/a&gt;, the students are asked the following:&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Implement a program the prints out a double half-pyramid of a specified height.  &lt;!-- raw HTML omitted --&gt;![[Pasted image 20250606000830.png]]&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;The output of such a program will look similar to the blocks and structures in the Mario game. So, for example running the program with height set to 4 would produce the following:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Clean Architecture: Migrations</title>
+      <link>//localhost:1313/posts/the-tale-of-migrations/</link>
+      <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/the-tale-of-migrations/</guid>
+      <description>&lt;p&gt;Recently I have been working on an intensive network migration project for a Dutch enterprise. This is by far one of the most exciting and yet fearsome projects I have been involved in. The migration project involves rebuilding the clients network based on standardized and automated profiles. This brings significant benefits to the service provider as well as the client. Such benefits are for example:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Devices will run based on a standardized and harmonious configuration throughout the entire network, thus it is always possible to deduct what configuration a certain device is running. This helps tremendously for operations and troubleshooting&lt;/li&gt;&#xA;&lt;li&gt;Standardized profiles allows standardized and controlled changes across the network&lt;/li&gt;&#xA;&lt;li&gt;Configuration management becomes easier and faster&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;When migrating a network, we have to introduce a momentarily outage. Now, imagine telling a multi billion euro enterprise running heavily on its network that for the migration we need to cut out your networks for a few minutes!&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

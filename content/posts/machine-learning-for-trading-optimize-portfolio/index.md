@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning for Trading: Optimize Portfolio"
-date: 2025-05-04
+date: 2022-09-11
 categories: programming, algorithms
 keywords: 
 mathjax: true
