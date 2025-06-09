@@ -24,15 +24,21 @@ I start with implementing the most simple variation, the longest continuously in
 
 The longest continuously increasing subsequence is a simple flavor of the general longest increasing subsequence.
 
-|   |
-|---|
-|**Description:** Given a sequence of n elements a1 a2 a3…ana1​ a2​ a3​…an​, find the longest continuously increasing _subsequence_. A _subsequence_ is any subset of the elements taken in order and contiguously, of the form ai1 ai2…aikai1​​ ai2​​…aik​​ where 1≤i1<i2<i3…ik≤n1≤i1​<i2​<i3​…ik​≤n. An _increasing subsequence_ is one in which the numbers are getting strictly larger, that is for every aiai​ in the subsequence we have ai>ai−1ai​>ai−1​  <br>  <br>**Input:** A sequence of numbers in the form a1 a2 a3…ana1​ a2​ a3​…an​  <br>**Output:** Length of the longest continuously increasing subsequence|
+>[!info] Algorithm
+>**Description:** Given a sequence of n elements a1 a2 a3…ana1​ a2​ a3​…an​, find the longest continuously increasing _subsequence_. A _subsequence_ is any subset of the elements taken in order and contiguously, of the form ai1 ai2…aikai1​​ ai2​​…aik​​ where 1≤i1<i2<i3…ik≤n1≤i1​<i2​<i3​…ik​≤n. An _increasing subsequence_ is one in which the numbers are getting strictly larger, that is for every aiai​ in the subsequence we have ai>ai−1ai​>ai−1​  
+>
+>**Input:** A sequence of numbers in the form a1 a2 a3…ana1​ a2​ a3​…an​  
+>
+>**Output:** Length of the longest continuously increasing subsequence
+
 
 Every time we have a problem to solve where it is a matter of maximizing or minimizing a certain property, **dynamic programming** can be an effective approach. We are going to apply dynamic programming to solve our problem.
 
-|   |
-|---|
-|**The Dynamic Programming Paradigm**1  <br>  <br>1. Identify a relatively small collection of subproblems.  <br>2. Show how to quickly and correctly solve "larger" subproblems given the solutions to "smaller" ones.  <br>3. Show how to quickly and correctly infer the final solution from the solutions to all of the subproblems.|
+>[!info] The Dynamic Programming Paradigm
+>1. Identify a relatively small collection of subproblems.  
+>2. Show how to quickly and correctly solve "larger" subproblems given the solutions to "smaller" ones. 
+>3. Show how to quickly and correctly infer the final solution from the solutions to all of the subproblems.
+
 
 The key to applying dynamic programming techniques lies in identifying the optimal _overlapping_ subproblems. Here _overlapping_ means we are able to solve the larger subproblem by knowing the solution to the smaller subproblems, in other words our subproblems are constructed from the smaller subproblems.
 
@@ -47,39 +53,68 @@ We begin by defining our subproblems like so:
 
 With our subproblems defined, we can now try to define a method for finding the optimal solutions. As we go along and construct our subproblems, we have a **decision to make**. Do we include the last element of the subsequence or not?
 
-|   |
-|---|
-|Remember our goal at each subproblem is to **find an optimal solution**. Thus, when looking at any subsequence, we can assume the optimal solution either contains the last element of the subsequence or it doesn't. This is where the **magic happens!**|
+>[!note]
+>
+>Remember our goal at each subproblem is to **find an optimal solution**. Thus, when looking at any subsequence, we can assume the optimal solution either contains the last element of the subsequence or it doesn't. This is where the **magic happens!**
 
 When we have our subproblems and a definition of optimal solutions, it is time to define the **recurrence relation**. Since we are aiming to solve larger subproblems from the smaller subproblems, we have to define a **recurrence relation**.
 
-|   |
-|---|
-|To begin with finding the recurrence, it is best to start with our base case.  <br>  <br>**Base case:** We define our base case to be the first subproblem, that is finding the largest continuously increasing subsequence for the subsequence a1a1​ ending in a1a1​. It is obvious the length of such increasing subsequence is `1` since there is only one element.  <br>  <br>**Recurrence:** We mentioned previously at every subproblem we have a decision to make, does adding the last element of the subsequence bring us to an optimized solution or not? Now, let's formulate this in a more precise and structured fashion.  <br>  <br>LCIS(aj)={LCIS(aj−1)+1if aj>aj−11else}LCIS(aj​)={​LCIS(aj−1​)+11​if aj​>aj−1​else​}|
+>[!info] Base Case and Recurrence
+>
+>To begin with finding the recurrence, it is best to start with our base case.  
+>
+>**Base case:** We define our base case to be the first subproblem, that is finding the largest continuously increasing subsequence for the subsequence a1a1​ ending in a1a1​. It is obvious the length of such increasing subsequence is `1` since there is only one element.  
+>
+>**Recurrence:** We mentioned previously at every subproblem we have a decision to make, does adding the last element of the subsequence bring us to an optimized solution or not? Now, let's formulate this in a more precise and structured fashion.  
+>
+>```
+>LCIS(aj)={LCIS(aj−1)+1if aj>aj−11else}LCIS(aj​)={​LCIS(aj−1​)+11​if aj​>aj−1​else​}
+>```
+
 
 Thus, if adding the last element brings us to an optimized solution, our longest continuously increasing subsequence is what has been our longest continuously increasing subsequence excluding the last element plus 1. Look at the examples below, in the first subsequence, adding the last element increases the length of our longest continuously increasing subsequence, and so we should do that! However, in the second example, adding the last element doesn't bring us any benefit. Which also means, the length of our longest continuously increasing subsequence which ends at 3 is just 1!.
-
-![[Pasted image 20250606000549.png]]
+![](images/1.png)
 
 With our definition of **subproblem, optimized solution and recurrence** in place, it is now time verify the correctness of our solution.
 
 To prove our solution, we will be using induction, for those interested in the mathematical concepts behind induction and in general an amazing mathematics resource for computer science, the [Mathematics for Computer Science](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-spring-2015/index.htm) course offered by Prof. Meyer at MIT is **highly recommended**. The course has a wealth of material and a comprehensive online text book.
 
-|   |
-|---|
-|**The Induction Principle**2  <br>  <br>Let PP be a predicate on nonnegative integers. If  <br>  <br>1. P(0)P(0) is true, and  <br>2. P(n) implies P(n+1)P(n) implies P(n+1) for all nonnegative integers, nn  <br>  <br>then  <br>  <br>3. P(m)P(m) is true for all nonnegative integers, mm|
+>[!info] The Induction Principle
+>
+>Let PP be a predicate on nonnegative integers. If  
+>
+>1. P(0)P(0) is true, and  
+>
+>2. P(n) implies P(n+1)P(n) implies P(n+1) for all nonnegative integers then
+>
+>P(m)P(m) is true for all nonnegative integers
+
 
 Let's apply the induction principle to our solution.
 
-|   |
-|---|
-|We use induction to proof our hypothesis that the following equation can be used to find the longest continously increasing subsequence for any nonnegative sequence of integers:  <br>  <br>LCIS(aj)={LCIS(aj−1)+1if aj>aj−11else}LCIS(aj​)={​LCIS(aj−1​)+11​if aj​>aj−1​else​}  <br>  <br>**Base case:** In our base case we will proof that for a sequence of length 11 the length of the longest continuously increasing subsequence is 11. This is obvious, if our sequence contains a single element, then our longest continuously increasing subsequence is just 11.  <br>  <br>**Inductive step:** We assume that LCIS(aj)LCIS(aj​) is true, then we have two cases to consider:  <br>  <br>1. if aj<aj+1aj​<aj+1​ then the length of the longest continuously increasing subsequence ending in aj+1aj+1​ is the length of the longest continuously increasing subsequence ending in ajaj​ plus 11. Which means LCIS(aj+1)=LCIS(aj)+1LCIS(aj+1​)=LCIS(aj​)+1.  <br>  <br>2. if aj>aj+1aj​>aj+1​ then the length of the longest continuously increasing subsequence ending in aj+1aj+1​ is just 11, meaning LCIS(aj+1)=1LCIS(aj+1​)=1.  <br>  <br>Thus, our recurrence relation holds and LCIS(aj)LCIS(aj​) is correct.|
+>[!info] LCIS Algorithm
+>
+> We use induction to proof our hypothesis that the following equation can be used to find the longest continously increasing subsequence for any nonnegative sequence of integers:  
+  >
+>LCIS(aj)={LCIS(aj−1)+1if aj>aj−11else}LCIS(aj​)={​LCIS(aj−1​)+11​if aj​>aj−1​else​}  
+  >
+>**Base case:** In our base case we will proof that for a sequence of length 11 the length of the longest continuously increasing subsequence is 11. This is obvious, if our sequence contains a single element, then our longest continuously increasing subsequence is just 11.  
+  >
+>**Inductive step:** We assume that LCIS(aj)LCIS(aj​) is true, then we have two cases to consider:  
+  >
+>1. if aj<aj+1aj​<aj+1​ then the length of the longest continuously increasing subsequence ending in aj+1aj+1​ is the length of the longest continuously increasing subsequence ending in ajaj​ plus 11. Which means LCIS(aj+1)=LCIS(aj)+1LCIS(aj+1​)=LCIS(aj​)+1.  
+>  
+>2. if aj>aj+1aj​>aj+1​ then the length of the longest continuously increasing subsequence ending in aj+1aj+1​ is just 11, meaning LCIS(aj+1)=1LCIS(aj+1​)=1.  
+>
+
+Thus, our recurrence relation holds and LCIS(aj)LCIS(aj​) is correct.
 
 We are now set to write the algorithm for finding the length of the longest continuously increasing subsequence.
 
-|   |
-|---|
-|A ←emptylistA[1]←1for j from 2 to n:if aj>aj−1:A[j]←A[j−1]+1elseA[j]←1return A​A ←emptylistA[1]←1for j from 2 to n:if aj​>aj−1​:A[j]←A[j−1]+1elseA[j]←1return A​|
+>[!info] Recurrence Relation
+>
+>```A ←emptylistA[1]←1for j from 2 to n:if aj>aj−1:A[j]←A[j−1]+1elseA[j]←1return A
+>A ←emptylistA[1]←1for j from 2 to n:if aj​>aj−1​:A[j]←A[j−1]+1elseA[j]←1return A​
 
 The algorithm should be self explanatory. We start by initializing a list and then iterate over all the elements of the subsequence. At each iteration we solve the subproblem using the answers of the previous subproblems.
 

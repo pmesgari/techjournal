@@ -10,17 +10,22 @@ CS50 is one of the most well known and prestigious courses on computer science. 
 
 I was going through their material on the [CS50x](https://cs50.harvard.edu/x/2021/) [website](https://cs50.harvard.edu/x/2021/), and I came across an interesting Python problem. Citing from the course materials in [Problem Set 6](https://cs50.harvard.edu/x/2021/psets/6/), the students are asked the following:
 
-|                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------- |
-| Implement a program the prints out a double half-pyramid of a specified height.  <br>![[Pasted image 20250606000830.png]] |
+>[!info] Mario
+>
+>Implement a program the prints out a double half-pyramid of a specified height.
+>
+>![](images/1.png)
+
 
 The output of such a program will look similar to the blocks and structures in the Mario game. So, for example running the program with height set to 4 would produce the following:
 
 Height: 4
+```
       #    #
      ##    ##
     ###    ###
    ####    ####
+```
 
 The code for this article can be found at:
 
@@ -45,11 +50,13 @@ We are also given a collection of tests to help us in writing and verifying the 
 
 - Run your program as `python mario.py` and wait for a prompt for input. Type in `2` and press enter. Your program should generate the below output. Be sure that the pyramid is aligned to the bottom-left corner of your terminal, and that there are no extra spaces at the end of each line.
 
+```
  #  #
 ##  ##
-
+```
+ 
 - Run your program as `python mario.py` and wait for a prompt for input. Type in `8` and press enter. Your program should generate the below output. Be sure that the pyramid is aligned to the bottom-left corner of your terminal, and that there are no extra spaces at the end of each line.
-
+```
        #  #
       ##  ##
      ###  ###
@@ -59,10 +66,14 @@ We are also given a collection of tests to help us in writing and verifying the 
  #######  #######
 ########  ########
 
+```
+
 - Run your program as `python mario.py` and wait for a prompt for input. Type in `9` and press enter. Your program should reject this input as invalid, as by re-prompting the user to type in another number. Then, type in `2` and press enter. Your program should generate the below output. Be sure that the pyramid is aligned to the bottom-left corner of your terminal, and that there are no extra spaces at the end of each line.
 
+```
  #  #
 ##  ##
+```
 
 - Run your program as `python mario.py` and wait for a prompt for input. Type in `foo` and press enter. Your program should reject this input as invalid, as by re-prompting the user to type in another number.
 - Run your program as `python mario.py` and wait for a prompt for input. Do not type anything, and press enter. Your program should reject this input as invalid, as by re-prompting the user to type in another number.
@@ -76,16 +87,22 @@ Taking a close look at the pyramid's the first thing that captures attention is 
 We can think of each layer in the pyramid as a sequence of characters, for example 0s and 1s. This allows us to quickly see the pattern and help us in writing the code. For example the pyramid of height 4 can have the following string representation:
 
 Height: 4
+```
       #    #     0001001000 
      ##    ##    0011001100
     ###    ###   0111001110
    ####    ####  1111001111
+```
 
 Now, next question is how can we generate such a string representation? Before we dive into the details of the implementation lets create an action plan. Looking at the strings above it is easy to see the symmetry, that is right half is always reverse of the left half. And finally the gap connects the two halves. Thus, our most important finding is: **Right is reverse of the Left.**
 
-|   |
-|---|
-|1. Make the left half  <br>2. Make the right half by reversing the left half  <br>3. Merge left and right  <br>4. Insert the gap|
+>[!info] Algorithm
+>
+>1. Make the left half  
+>2. Make the right half by reversing the left half  
+>3. Merge left and right  
+>4. Insert the gap
+
 
 We can write a pseudo code that generates the left half as such:
 
@@ -100,7 +117,7 @@ The loop above executes per layer of the pyramid. We have introduced a variable 
 
 It is important to realize how we define height. To do that imagine a coordinate system with its y axis at the top of the pyramid and its positive direction towards the bottom of the pyramid. Also, note that height starts at 1.
 
-![[Pasted image 20250606000903.png]]
+![](images/2.png)
 
 Lets begin with a writing a test and the code to make it pass.
 
@@ -168,7 +185,7 @@ The code should be self-explanatory, we simply make two halves, the gap and then
 
 It is important to understand the relation between the gap size and blocks. We can't use 0s to represent the gap size, because we are already using 0s to represent the empty blocks. If we would use 0s to represent the gap size, and the empty blocks, using a gap size of 2 we would end up with something like this:
 
-```bash
+```
        #     #
      ##       ##
    ###         ###
@@ -196,9 +213,8 @@ def draw_pyramid(pyramid, block='#', gap='  '):
 
 This completed the core of our application, we can now draw pyramids. However, going back to our specifications, we are asked to develop a CLI interface that takes the `height` from the user and draws the pyramid. The CLI is responsible to make sure the data going into our application is valid and clean.
 
-|   |
-|---|
-|**Validate** and clean your data on **the edges** of your application as much as possible. This allows the core of the system to stay clean and focus only on what matters, which is the **domain logic**.|
+>[!note]
+>**Validate** and clean your data on **the edges** of your application as much as possible. This allows the core of the system to stay clean and focus only on what matters, which is the **domain logic**.
 
 Here is the final piece of our application.
 

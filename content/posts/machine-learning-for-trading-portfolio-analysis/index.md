@@ -27,7 +27,9 @@ There are several metrics that can be used to evaluate the performance of a port
 A measure that adjusts returns for risk. All else being equal, lower risk is better, higher returns is better. Also, SR takes into account the risk free rate of return. This is the return one would get if they invested their capital in short term treasury or bank account. However, this value has been almost zero since 2015.
 
 To compute the Sharpe Ratio the equation below can be used.
-![[Pasted image 20250605235035.png]]
+
+![](images/1.png)
+
 
 From statistics we know that we can calculate the expected value of a series by simply taking the mean of the series. Sharpe ratio is highly dependent on how frequently sampling is done. SR is usually an annual measure and we can normalize it by using a coefficient that depends on the sampling frequency.
 
@@ -37,7 +39,8 @@ We start implementing the portfolio analysis metrics for a set of stock symbols.
 
 To calculate anything data is needed, either as local files in a CSV format or downloading them online, manually or through a package such as yfinance. One way or another, we assume data is available and it is has the following structure.
 
-![[Pasted image 20250605235157.png]]
+![](images/2.png)
+
 The rows or the index are datetimes and the columns are the prices for the symbols. We use SPY (S&P 500) symbol as a sort of reference frame to make comparisons with.
 
 First step is to calculate the portfolio daily value. We assume no changes will occur on day 1 and that there will be only changes on a daily basis. The function below calculates the portfolio daily value.
@@ -65,7 +68,7 @@ return port_val
 ```
 So, there are a couple of things happening here, the end goal is to calculate the daily value of the portfolio, and to get there several operations are performed on the data which is explained below.
 
-![[Pasted image 20250605235250.png]]
+![](images/3.png)
 
 Once the portfolio daily value is computed, it is possible to determine the daily return value, a very important metric in portfolio analysis.
 
@@ -85,7 +88,9 @@ def compute_portfolio_daily_returns(port_val):
 
     return daily_returns
 ```
-![[Pasted image 20250605235316.png]]
+
+
+![](images/4.png)
 
 Finally it is now possible to calculate the rest of the important metrics of the portfolio to evaluate its performance.
 
@@ -242,4 +247,4 @@ if __name__ == '__main__':
 
 Using the sample inputs in the code above, the generated plot would look like the following.
 
-![[Pasted image 20250605235403.png]]
+![](images/5.png)

@@ -39,12 +39,14 @@
             "id": "2375fab1540dea29",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "posts/computer-networks-qa-cdns/images/Pasted image 20250605235804.png"
+                "file": "posts/computer-networks-qa-cdns/index.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20250605235804"
+              "icon": "lucide-file",
+              "title": "index"
             }
           },
           {
@@ -65,12 +67,14 @@
             "id": "98986ee2f5231709",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "posts/mario/images/Pasted image 20250606000830.png"
+                "file": "posts/mario/index.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20250606000830"
+              "icon": "lucide-file",
+              "title": "index"
             }
           },
           {
@@ -79,7 +83,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/the-tale-of-migrations/index.md",
+                "file": "posts/mario/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -161,7 +165,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/the-tale-of-migrations/index.md",
+                "file": "posts/mario/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -180,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/the-tale-of-migrations/index.md",
+                "file": "posts/mario/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -209,7 +213,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/the-tale-of-migrations/index.md",
+                "file": "posts/mario/index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -235,8 +239,26 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4f7e967ad411fbed",
+  "active": "08f4aa8aaa9c333f",
   "lastOpenFiles": [
+    "posts/mario/images/2.png",
+    "posts/mario/images/1.png",
+    "posts/machine-learning-for-trading-portfolio-analysis/index.md",
+    "posts/computer-networks-qa-cdns/index.md",
+    "posts/machine-learning-for-trading-portfolio-analysis/images/5.png",
+    "posts/machine-learning-for-trading-portfolio-analysis/images/4.png",
+    "posts/machine-learning-for-trading-portfolio-analysis/images/3.png",
+    "posts/machine-learning-for-trading-portfolio-analysis/images/2.png",
+    "posts/machine-learning-for-trading-portfolio-analysis/images/Pasted image 20250605235035.png",
+    "posts/machine-learning-for-trading-portfolio-analysis/images/1.png",
+    "posts/computer-networks-qa-cdns/images/2.png",
+    "posts/computer-networks-qa-cdns/images/1.png",
+    "posts/subsequences-part-2/index.md",
+    "posts/subsequences-part-2/images/1.png",
+    "posts/subsequences-part-1/index.md",
+    "Pastd.md",
+    "posts/machine-learning-for-trading-optimize-portfolio/index.md",
+    "posts/the-tale-of-migrations/index.md",
     "posts/the-tale-of-migrations/The Tale of Migrations_ The Verdict - Tech Journal.html",
     "posts/the-tale-of-migrations/images/viewer-static.min.js",
     "posts/the-tale-of-migrations/images/view.min.js",
@@ -247,27 +269,10 @@
     "posts/the-tale-of-migrations/images/svg.js",
     "posts/the-tale-of-migrations/images/style.min.css",
     "posts/the-tale-of-migrations/images/style.css",
-    "posts/the-tale-of-migrations/images/startup.js",
-    "posts/the-tale-of-migrations/images/36f9cfddf07c6bf002f33b9115cedeb960049b59de5a3e9195dfe8c50d3f8dc7.jpg",
-    "posts/the-tale-of-migrations/images/36f9cfddf07c6bf002f33b9115cedeb960049b59de5a3e9195dfe8c50d3f8dc7(1).jpg",
-    "posts/mario/images/Pasted image 20250606000830.png",
     "index.md",
-    "posts/the-tale-of-migrations/index.md",
-    "posts/mario/images/Pasted image 20250606000903.png",
     "posts/mario/index.md",
-    "posts/subsequences-part-1/index.md",
-    "posts/subsequences-part-1/images/Pasted image 20250606000549.png",
-    "posts/subsequences-part-2/index.md",
-    "posts/subsequences-part-2/images/Pasted image 20250606000114.png",
-    "posts/computer-networks-qa-cdns/images/Pasted image 20250605235804.png",
-    "posts/computer-networks-qa-cdns/index.md",
-    "posts/computer-networks-qa-cdns/images/Pasted image 20250605235825.png",
     "posts/machine-learning-for-trading-build-a-decision-tree-learner/index.md",
-    "posts/machine-learning-for-trading-portfolio-analysis/images/Pasted image 20250605235403.png",
-    "posts/machine-learning-for-trading-portfolio-analysis/images/Pasted image 20250605235316.png",
-    "posts/machine-learning-for-trading-portfolio-analysis/index.md",
     "machine-learning-for-trading-portfolio-analysis/index.md",
-    "posts/machine-learning-for-trading-optimize-portfolio/index.md",
     "about/index.md",
     "2023-01-11.md",
     "posts/machine-learning-for-trading-optimize-portfolio.md"

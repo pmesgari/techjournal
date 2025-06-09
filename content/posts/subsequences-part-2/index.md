@@ -6,9 +6,13 @@ keywords:
 ---
 In the previous article we showed the algorithm for finding the longest continuously increasing subsequence. Now, we try to find the longest increasing subsequence and drop the contiguous requirement. First we begin with a formal definition of the problem.
 
-|   |
-|---|
-|**Description:** Given a sequence of n elements a1 a2 a3…ana1​ a2​ a3​…an​, find the longest continuously increasing _subsequence_. A _subsequence_ is any subset of the elements taken in order, of the form ai1 ai2…aikai1​​ ai2​​…aik​​ where 1≤i1<i2<i3…ik≤n1≤i1​<i2​<i3​…ik​≤n. An _increasing subsequence_ is one in which the numbers are getting strictly larger, that is for every aiai​ in the subsequence we have ai>ai−1ai​>ai−1​.  <br>  <br>**Input:** A sequence of numbers in the form a1 a2 a3…ana1​ a2​ a3​…an​  <br>**Output:** Length of the longest continuously increasing subsequence|
+>[!info] Algorithm Description
+>
+ >**Description:** Given a sequence of n elements a1 a2 a3…ana1​ a2​ a3​…an​, find the longest continuously increasing _subsequence_. A _subsequence_ is any subset of the elements taken in order, of the form ai1 ai2…aikai1​​ ai2​​…aik​​ where 1≤i1<i2<i3…ik≤n1≤i1​<i2​<i3​…ik​≤n. An _increasing subsequence_ is one in which the numbers are getting strictly larger, that is for every aiai​ in the subsequence we have ai>ai−1ai​>ai−1​.  
+  >
+>**Input:** A sequence of numbers in the form a1 a2 a3…ana1​ a2​ a3​…an​  
+>
+>**Output:** Length of the longest continuously increasing subsequence
 
 Removing the contiguous requirement brings some interesting challenges in solving the longest increasing subsequence problem. We first begin with the mathematical preliminaries.
 
@@ -22,14 +26,18 @@ The patience sorting algorithm can be used to determine the length of the longes
 
 Once the patience sorting algorithm is applied we will have a certain number of piles, this number is equal to the length of the longest increasing subsequence.
 
-|   |
-|---|
-|Define l(π)l(π) to be the length of the longest increasing subsequence of a permutation ππ.  <br>  <br>**Lemma:** With deck ππ, patience sorting played with the greedy strategy ends with exactly l(π)l(π) piles. Furthermore, the game played with any legal strategy ends with at least l(π)l(π) piles. So the greedy strategy is optimal, and cannot be improved by any look-ahead strategy.  <br>  <br>**Proof:** If cards a1 a2 a3…ala1​ a2​ a3​…al​ appear in increasing order, then under any legal strategy each aiai​ must be placed in some pile to the right of the pile containing ai−1ai−1​, because the card number on top of that pile can only decrease. Thus, the final number of piles is at least ll, and hence at least l(π)l(π). Conversely, using the greedy strategy, when a card cc is placed in a pile other than the first pile, put a pointer from that card to the currently top card c′<cc′<c in the pile to the left. At the end of the game, let alal​ be the card on top of the rightmost pile ll. The sequence a1←a2←⋯←al−1←ala1​←a2​←⋯←al−1​←al​ obtained by following the pointers is an increasing subsequence whose length is the number of piles.|
-|The proof and definition of patience sorting from _Longest Increasing Subsequence: From Patience Sorting to Baik-Deift-Johansson Theorem2._|
+>[!info] Theory
+>Define l(π)l(π) to be the length of the longest increasing subsequence of a permutation ππ.  
+>  
+>**Lemma:** With deck ππ, patience sorting played with the greedy strategy ends with exactly l(π)l(π) piles. Furthermore, the game played with any legal strategy ends with at least l(π)l(π) piles. So the greedy strategy is optimal, and cannot be improved by any look-ahead strategy.  
+>
+>**Proof:** If cards a1 a2 a3…ala1​ a2​ a3​…al​ appear in increasing order, then under any legal strategy each aiai​ must be placed in some pile to the right of the pile containing ai−1ai−1​, because the card number on top of that pile can only decrease. Thus, the final number of piles is at least ll, and hence at least l(π)l(π). Conversely, using the greedy strategy, when a card cc is placed in a pile other than the first pile, put a pointer from that card to the currently top card c′<cc′<c in the pile to the left. At the end of the game, let alal​ be the card on top of the rightmost pile ll. The sequence a1←a2←⋯←al−1←ala1​←a2​←⋯←al−1​←al​ obtained by following the pointers is an increasing subsequence whose length is the number of piles.
+>
+>The proof and definition of patience sorting from *Longest Increasing Subsequence: From Patience Sorting to Baik-Deift-Johansson Theorem*.
 
 The example below displays how the patience sort is applied and the resulting longest increasing subsequence. We assume Ace has a value of 1.
 
-![[Pasted image 20250606000114.png]]
+![](images/1.png)
 
 We now have a solution that we can implement.
 
@@ -166,9 +174,8 @@ class Pile(Stack):
 
 The tests and the code should be self-explanatory. Most important to understand is that as long as the `other` object is implementing the same operator functions we can compare it to our object.
 
-|   |
-|---|
-|**Note**: This might seem strange at first, because comparing stacks per se doesn't make much sense. A stack is just a mechanism to store information. But, remember **modelling the domain** and the **problem** is **critical**. Within our context we are dealing with piles, and it is allowed and needed to compare piles in order to place the cards in the correct pile. A stack is just an easy to use and implement data structure that allows us to model a pile.|
+>[!info] Note
+>This might seem strange at first, because comparing stacks per se doesn't make much sense. A stack is just a mechanism to store information. But, remember **modelling the domain** and the **problem** is **critical**. Within our context we are dealing with piles, and it is allowed and needed to compare piles in order to place the cards in the correct pile. A stack is just an easy to use and implement data structure that allows us to model a pile.
 
 ## Implementing the Binary Search
 
