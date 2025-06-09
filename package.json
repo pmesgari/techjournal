@@ -5,9 +5,7 @@
 	"scripts": {
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev",
-		"start": "wrangler dev",
-		"prebuild": "node scripts/obsidian-callout-preprocess.js",
-		"hugo": "npm run prebuild && hugo serve"
+		"start": "wrangler dev"
 	},
 	"devDependencies": {
 		"wrangler": "^4.19.1"

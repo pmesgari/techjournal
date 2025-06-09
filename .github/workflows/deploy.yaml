@@ -1,31 +1,35 @@
-name: Deploy Hugo site to Cloudflare Workers
+name: Deploy to Cloudflare Workers
 
 on:
   push:
     branches:
-      - main # Change if your deployment branch is different
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository with submodules
+      - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
-      - name: Setup Hugo
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Set up Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
+          hugo-version: '0.147.7'
 
-      - name: Build site
+      - name: Build Hugo site
         run: hugo --minify
 
-      # If you need to move/copy files, e.g., if Cloudflare Worker needs a specific structure, do it here
-
-      - name: Publish to Cloudflare Workers
-        run: npx wrangler publish
+      - name: Deploy with Wrangler
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npm run deploy
