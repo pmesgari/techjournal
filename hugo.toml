@@ -2,6 +2,7 @@ baseURL = "/"
 languageCode = 'en-us'
 title = 'Techjournal'
 theme = "cactus"
+ignoreFiles = ["content/templates/.*"]
 
 [params]
 description = "An Engineer's Path in the World of Infrastructure, Math and Computer Science"

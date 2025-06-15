@@ -28,7 +28,7 @@ A measure that adjusts returns for risk. All else being equal, lower risk is bet
 
 To compute the Sharpe Ratio the equation below can be used.
 
-![](images/1.png)
+![](posts/machine-learning-for-trading-portfolio-analysis/images/1.png)
 
 
 From statistics we know that we can calculate the expected value of a series by simply taking the mean of the series. Sharpe ratio is highly dependent on how frequently sampling is done. SR is usually an annual measure and we can normalize it by using a coefficient that depends on the sampling frequency.

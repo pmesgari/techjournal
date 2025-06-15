@@ -83,7 +83,7 @@ Given the scale of today's internet having a centralized controller to monitor p
 
 Consistent hashing is an example of distributed has table and requires relatively little movement when nodes join and leave the system. The main idea is that servers and the content objects are mapped to the same ID space.
 
-![](images/1.png)
+![](posts/computer-networks-qa-cdns/images/1.png)
 
 When server 41 leaves, the successor for content 28 becomes server 61.
 
