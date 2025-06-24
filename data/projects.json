@@ -1,0 +1,14 @@
+{
+    "list": [
+       {
+          "name":"Advent of Code",
+          "url":"https://github.com/pmesgari/adventofcodde",
+          "desc":"My solutions to advent of code challenges."
+       },
+       {
+          "name":"Distributed Bellman-Ford",
+          "url":"https://github.com/pmesgari/bellman-ford",
+          "desc":"An illustration of the distributed Bellman-Ford algorithm."
+       }
+    ]
+ }

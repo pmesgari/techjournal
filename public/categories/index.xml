@@ -22,5 +22,19 @@
       <guid>//localhost:1313/categories/computer-network/</guid>
       <description></description>
     </item>
+    <item>
+      <title>X</title>
+      <link>//localhost:1313/categories/x/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/categories/x/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Y</title>
+      <link>//localhost:1313/categories/y/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/categories/y/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
