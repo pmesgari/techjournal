@@ -6,8 +6,15 @@
     <description>Recent content in Categories on Techjournal</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Thinking_algorithmically</title>
+      <link>//localhost:1313/categories/thinking_algorithmically/</link>
+      <pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/categories/thinking_algorithmically/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Programming, Algorithms</title>
       <link>//localhost:1313/categories/programming-algorithms/</link>
@@ -20,20 +27,6 @@
       <link>//localhost:1313/categories/computer-network/</link>
       <pubDate>Wed, 24 Apr 2024 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/categories/computer-network/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>X</title>
-      <link>//localhost:1313/categories/x/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/categories/x/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Y</title>
-      <link>//localhost:1313/categories/y/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/categories/y/</guid>
       <description></description>
     </item>
   </channel>

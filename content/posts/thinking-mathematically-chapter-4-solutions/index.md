@@ -31,7 +31,7 @@ keywords:
 
 To reach the end goal we will need to shift by 1 in the `x` direction in which case `(x + y) mod 2 != 0` . This means no sequence of rotations is possible to reach the target location.
 
-![](images/1.png)
+![](posts/thinking-mathematically-chapter-4-solutions/images/1.png)
 
 ### Review
 - I was confused for a while because I didn't really understand what it meant to place the chair exactly beside the starting location. I kept shifting each corner tile by exactly one location. This is wrong because placing exactly beside would mean the two right legs would occupy the same tile as the two left legs. That's where the requirement for tiles to change their colour comes from.
@@ -194,7 +194,7 @@ Now that we have the winning combinations, how does that help us play? Rememberi
 
 Let's try to find an analogy. A 3x3 magic square uses the numbers from 1 to 9, and every row, column, and main diagonal sums to 15.
 
-![](images/2.png)
+![](posts/thinking-mathematically-chapter-4-solutions/images/2.png)
 
 There are 8 lines that sum to 15. These are the exact same 8 winning combinations we found earlier.
 
@@ -242,7 +242,7 @@ Let's test the case for $N=6$. We predict 32 regions but can only produce 31 reg
 
 Here I struggled for a while to figure out why I could only draw 30 regions. The key point is how regions are created when three lines intersect. Putting the spots in a symmetrical manner will result in some lines to cross at the same intersections which produces less regions. To create 31 regions, I needed to ensure spots are less symmetrical and no three lines will cross at the same intersection.
 
-![](images/3.png)
+![](posts/thinking-mathematically-chapter-4-solutions/images/3.png)
 
 So why did the pattern break? The simple doubling pattern wasn't connected to how the regions are made. A better way to count the regions is to understand what creates them. The number of regions is determined by the number of parts the circle and the lines are divided into.
 

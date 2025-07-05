@@ -117,7 +117,7 @@ The loop above executes per layer of the pyramid. We have introduced a variable 
 
 It is important to realize how we define height. To do that imagine a coordinate system with its y axis at the top of the pyramid and its positive direction towards the bottom of the pyramid. Also, note that height starts at 1.
 
-![](images/2.png)
+![](posts/mario/images/2.png)
 
 Lets begin with a writing a test and the code to make it pass.
 
