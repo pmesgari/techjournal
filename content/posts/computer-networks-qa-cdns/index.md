@@ -83,7 +83,7 @@ Given the scale of today's internet having a centralized controller to monitor p
 
 Consistent hashing is an example of distributed has table and requires relatively little movement when nodes join and leave the system. The main idea is that servers and the content objects are mapped to the same ID space.
 
-![](posts/computer-networks-qa-cdns/images/1.png)
+![](images/1.png)
 
 When server 41 leaves, the successor for content 28 becomes server 61.
 
@@ -97,7 +97,7 @@ Why would a centralized design with a single DNS server not work?
 
 The client requests the IP address for a certain domain, it first contacts the root server and then the request flows down to the top level domain server and finally the authoritative server for the hostname.
 
-![](posts/computer-networks-qa-cdns/images/2.png)
+![](images/2.png)
 
 What are the services offered by DNS, apart from hostname resolution?
 

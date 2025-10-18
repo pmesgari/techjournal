@@ -14,7 +14,7 @@ I was going through their material on the [CS50x](https://cs50.harvard.edu/x/20
 >
 >Implement a program the prints out a double half-pyramid of a specified height.
 >
->![](posts/mario/images/1.png)
+>![](images/1.png)
 
 
 The output of such a program will look similar to the blocks and structures in the Mario game. So, for example running the program with height set to 4 would produce the following:
@@ -117,7 +117,7 @@ The loop above executes per layer of the pyramid. We have introduced a variable 
 
 It is important to realize how we define height. To do that imagine a coordinate system with its y axis at the top of the pyramid and its positive direction towards the bottom of the pyramid. Also, note that height starts at 1.
 
-![](posts/mario/images/2.png)
+![](images/2.png)
 
 Lets begin with a writing a test and the code to make it pass.
 

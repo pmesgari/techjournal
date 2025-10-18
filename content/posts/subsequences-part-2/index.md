@@ -37,7 +37,7 @@ Once the patience sorting algorithm is applied we will have a certain number of 
 
 The example below displays how the patience sort is applied and the resulting longest increasing subsequence. We assume Ace has a value of 1.
 
-![](posts/subsequences-part-2/images/1.png)
+![](images/1.png)
 
 We now have a solution that we can implement.
 

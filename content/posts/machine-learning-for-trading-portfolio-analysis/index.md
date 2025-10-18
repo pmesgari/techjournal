@@ -28,7 +28,7 @@ A measure that adjusts returns for risk. All else being equal, lower risk is bet
 
 To compute the Sharpe Ratio the equation below can be used.
 
-![](posts/machine-learning-for-trading-portfolio-analysis/images/1.png)
+![](images/1.png)
 
 
 From statistics we know that we can calculate the expected value of a series by simply taking the mean of the series. Sharpe ratio is highly dependent on how frequently sampling is done. SR is usually an annual measure and we can normalize it by using a coefficient that depends on the sampling frequency.
@@ -39,7 +39,7 @@ We start implementing the portfolio analysis metrics for a set of stock symbols.
 
 To calculate anything data is needed, either as local files in a CSV format or downloading them online, manually or through a package such as yfinance. One way or another, we assume data is available and it is has the following structure.
 
-![](posts/machine-learning-for-trading-portfolio-analysis/images/2.png)
+![](images/2.png)
 
 The rows or the index are datetimes and the columns are the prices for the symbols. We use SPY (S&P 500) symbol as a sort of reference frame to make comparisons with.
 
@@ -68,7 +68,7 @@ return port_val
 ```
 So, there are a couple of things happening here, the end goal is to calculate the daily value of the portfolio, and to get there several operations are performed on the data which is explained below.
 
-![](posts/machine-learning-for-trading-portfolio-analysis/images/3.png)
+![](images/3.png)
 
 Once the portfolio daily value is computed, it is possible to determine the daily return value, a very important metric in portfolio analysis.
 
