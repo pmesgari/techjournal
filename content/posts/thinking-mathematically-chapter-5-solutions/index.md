@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Thinking Mathematically: Chapter 5 Solutions"
 date: 2025-09-16
 draft: false
 tags:
