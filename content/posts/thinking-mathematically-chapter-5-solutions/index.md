@@ -81,7 +81,7 @@ We know 1 is nice, so applying the +3 operation gives us $1+3=4, 4+3=7, 7+3=10, 
 
 Below we see how we can get 6 and 8. 
 
-![](images/2.png)
+![](posts/thinking-mathematically-chapter-5-solutions/images/2.png)
 
 So, we can form a conjecture.
 - From 6, we can generate $9, 12, 15, ...$ (all numbers in the form $3k$)

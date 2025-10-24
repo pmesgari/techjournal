@@ -194,7 +194,7 @@ Now that we have the winning combinations, how does that help us play? Rememberi
 
 Let's try to find an analogy. A 3x3 magic square uses the numbers from 1 to 9, and every row, column, and main diagonal sums to 15.
 
-![](images/2.png)
+![](posts/thinking-mathematically-chapter-4-solutions/images/2.png)
 
 There are 8 lines that sum to 15. These are the exact same 8 winning combinations we found earlier.
 

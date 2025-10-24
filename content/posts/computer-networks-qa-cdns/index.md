@@ -97,7 +97,7 @@ Why would a centralized design with a single DNS server not work?
 
 The client requests the IP address for a certain domain, it first contacts the root server and then the request flows down to the top level domain server and finally the authoritative server for the hostname.
 
-![](images/2.png)
+![](posts/computer-networks-qa-cdns/images/2.png)
 
 What are the services offered by DNS, apart from hostname resolution?
 

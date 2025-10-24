@@ -6,8 +6,29 @@
     <description>Recent content on Techjournal</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Letting Go of Regret: A Computational Perspective</title>
+      <link>//localhost:1313/posts/letting-go-of-regret-a-computational-perspective/</link>
+      <pubDate>Fri, 24 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/letting-go-of-regret-a-computational-perspective/</guid>
+      <description>&lt;p&gt;For a long time, regret was a heavy companion. Whenever I felt it looming, I&amp;rsquo;d get caught in an intense spiral of &amp;ldquo;what ifs.&amp;rdquo; How could things have gone differently? How could I have avoided this outcome? My mind would race through seemingly infinite alternative scenarios, a frustrating and exhausting exercise.&lt;/p&gt;&#xA;&lt;p&gt;Recently, though, a different way of thinking sparked – viewing regret through a computational lens. The conclusion I reached was startlingly simple: &lt;strong&gt;Regret, in a computational sense, doesn&amp;rsquo;t logically exist.&lt;/strong&gt; There are only decision points in life, and each choice sends us down a unique timeline, a distinct trajectory. This idea resonated deeply, and I wanted to explore it further, using computational and mathematical concepts to formalize it, both for myself and for others who might find this perspective helpful. Writing this post is part of that process. Encouragingly, since adopting this view, I find myself dwelling on regret far less often; it&amp;rsquo;s genuinely helped me let go and refocus.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Thinking Mathematically: Chapter 6 Solutions</title>
+      <link>//localhost:1313/posts/thinking-mathematically-chapter-6-solutions/</link>
+      <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/thinking-mathematically-chapter-6-solutions/</guid>
+      <description>&lt;h2 id=&#34;cut-away&#34;&gt;Cut-away&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;[!info] Cut-away&#xA;Two diagonally opposite corners of a chessboard are removed. Can you cover the remaining board with dominoes each of which covers two squares?&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;entry&#34;&gt;Entry&lt;/h3&gt;&#xA;&lt;p&gt;I looked into the problem and did a few examples (&lt;strong&gt;Specializing&lt;/strong&gt;). I had several questions:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Why can I not cover the last two?&lt;/li&gt;&#xA;&lt;li&gt;Why the problem is asking for diagonal corners? Is it position? Is it being same coloured?&lt;/li&gt;&#xA;&lt;li&gt;Do we always end up with two tiles uncovered? &lt;em&gt;Initially thought opposite colors of removed, need to check this.&lt;/em&gt;&lt;/li&gt;&#xA;&lt;li&gt;Feels like there is some sort of carry over effect.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;what-do-i-know&#34;&gt;What do I KNOW?&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;An 8x8 chessboard has 64 squares, 32 white (W) and 32 black (B).&lt;/li&gt;&#xA;&lt;li&gt;Diagonally opposite corners have the same color.&lt;/li&gt;&#xA;&lt;li&gt;Removing two diagonally opposite corners leaves 62 squares.&lt;/li&gt;&#xA;&lt;li&gt;If 2W corners are removed, 30W and 32B remain.&lt;/li&gt;&#xA;&lt;li&gt;If 2B corners are removed, 32W and 30B remain.&lt;/li&gt;&#xA;&lt;li&gt;A domino covers two adjacent squares.&lt;/li&gt;&#xA;&lt;li&gt;Adjacent squares have opposite colors.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;what-do-i-want&#34;&gt;What do I WANT?&lt;/h4&gt;&#xA;&lt;p&gt;To determine if the 62 remaining squares can be perfectly covered by 31 dominoes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Thinking Mathematically: Chapter 5 Solutions</title>
+      <link>//localhost:1313/posts/thinking-mathematically-chapter-5-solutions/</link>
+      <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/thinking-mathematically-chapter-5-solutions/</guid>
+      <description>&lt;h2 id=&#34;bee-genealogy&#34;&gt;Bee Genealogy&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;[!info] Bee Genealogy&#xA;Male bees hatch from unfertilized eggs and so have a mother but no father. Female bees hatch from fertilized eggs. How many ancestors does a male bee have in the twelfth generation back? How many of these are males?&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;entry&#34;&gt;Entry&lt;/h3&gt;&#xA;&lt;p&gt;We&amp;rsquo;ll specialise by drawing a sample diagram.&#xA;The red numbers indicate the ancestors.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;images/1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;attack&#34;&gt;Attack&lt;/h3&gt;&#xA;&lt;p&gt;Looking at the diagram, a clear pattern emerges $1, 1, 2, , 3, 5, &amp;hellip;$  . This is the Fibonacci sequence.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Thinking Algorithmically: Hash Tables</title>
       <link>//localhost:1313/posts/thinking-algorithmically-hash-tables/</link>

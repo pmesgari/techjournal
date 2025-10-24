@@ -39,7 +39,7 @@ We start implementing the portfolio analysis metrics for a set of stock symbols.
 
 To calculate anything data is needed, either as local files in a CSV format or downloading them online, manually or through a package such as yfinance. One way or another, we assume data is available and it is has the following structure.
 
-![](images/2.png)
+![](posts/machine-learning-for-trading-portfolio-analysis/images/2.png)
 
 The rows or the index are datetimes and the columns are the prices for the symbols. We use SPY (S&P 500) symbol as a sort of reference frame to make comparisons with.
 
