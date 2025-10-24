@@ -1,0 +1,37 @@
+{{- $src := .Destination -}}
+{{- $alt := .Text -}}
+{{- $title := .Title -}}
+
+{{- /* Handle full paths starting with "posts/" by converting to relative */ -}}
+{{- if hasPrefix $src "posts/" -}}
+  {{- $currentPath := .Page.File.Dir -}}
+  {{- /* Extract the post directory name from current path */ -}}
+  {{- $parts := split $currentPath "/" -}}
+  {{- $postDir := index $parts 1 -}}
+  
+  {{- /* Check if the image path starts with the current post directory */ -}}
+  {{- $expectedPrefix := printf "posts/%s/" $postDir -}}
+  {{- if hasPrefix $src $expectedPrefix -}}
+    {{- /* Convert to relative path by removing the posts/postname/ prefix */ -}}
+    {{- $src = strings.TrimPrefix $expectedPrefix $src -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Resolve the image path */ -}}
+{{- $finalSrc := "" -}}
+{{- if hasPrefix $src "http" -}}
+  {{- /* External URL */ -}}
+  {{- $finalSrc = $src -}}
+{{- else if hasPrefix $src "/" -}}
+  {{- /* Absolute path from site root */ -}}
+  {{- $finalSrc = $src | relURL -}}
+{{- else -}}
+  {{- /* Relative path - resolve from page bundle */ -}}
+  {{- $pageDir := .Page.File.Dir -}}
+  {{- $finalSrc = printf "/%s%s" $pageDir $src | relURL -}}
+{{- end -}}
+
+{{- /* Generate the image tag */ -}}
+<img src="{{ $finalSrc }}" alt="{{ $alt }}"
+  {{- with $title }} title="{{ . }}"{{ end -}}
+>
