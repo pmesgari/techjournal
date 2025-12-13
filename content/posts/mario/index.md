@@ -14,7 +14,7 @@ I was going through their material on the [CS50x](https://cs50.harvard.edu/x/20
 >
 >Implement a program the prints out a double half-pyramid of a specified height.
 >
->![](images/1.png)
+>![](posts/mario/images/1.png)
 
 
 The output of such a program will look similar to the blocks and structures in the Mario game. So, for example running the program with height set to 4 would produce the following:

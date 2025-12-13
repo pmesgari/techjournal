@@ -73,7 +73,7 @@ When we have our subproblems and a definition of optimal solutions, it is time t
 
 
 Thus, if adding the last element brings us to an optimized solution, our longest continuously increasing subsequence is what has been our longest continuously increasing subsequence excluding the last element plus 1. Look at the examples below, in the first subsequence, adding the last element increases the length of our longest continuously increasing subsequence, and so we should do that! However, in the second example, adding the last element doesn't bring us any benefit. Which also means, the length of our longest continuously increasing subsequence which ends at 3 is just 1!.
-![](images/1.png)
+![](posts/subsequences-part-1/images/1.png)
 
 With our definition of **subproblem, optimized solution and recurrence** in place, it is now time verify the correctness of our solution.
 

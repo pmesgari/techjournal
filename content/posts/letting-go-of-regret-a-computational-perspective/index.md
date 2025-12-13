@@ -23,7 +23,7 @@ Consciously or not, a choice is always made, launching us onto a specific path o
 
 Let's analyze the structure of this decision tree. A key property is its **height (H)**, which is the number of decision levels from the root to the furthest leaf.
 
-![](images/1.png)
+![](posts/letting-go-of-regret-a-computational-perspective/images/1.png)
 
 Notice a pattern: each node potentially gives rise to two new nodes at the next level down. This doubling effect means the number of nodes _at_ a specific level (L) grows exponentially. We can represent this using powers of 2:
 

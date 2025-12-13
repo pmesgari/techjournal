@@ -18,7 +18,7 @@ keywords:
 We'll specialise by drawing a sample diagram.
 The red numbers indicate the ancestors.
 
-![](images/1.png)
+![](posts/thinking-mathematically-chapter-5-solutions/images/1.png)
 
 ### Attack
 

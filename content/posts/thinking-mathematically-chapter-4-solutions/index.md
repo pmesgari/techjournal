@@ -31,7 +31,7 @@ keywords:
 
 To reach the end goal we will need to shift by 1 in the `x` direction in which case `(x + y) mod 2 != 0` . This means no sequence of rotations is possible to reach the target location.
 
-![](images/1.png)
+![](posts/thinking-mathematically-chapter-4-solutions/images/1.png)
 
 ### Review
 - I was confused for a while because I didn't really understand what it meant to place the chair exactly beside the starting location. I kept shifting each corner tile by exactly one location. This is wrong because placing exactly beside would mean the two right legs would occupy the same tile as the two left legs. That's where the requirement for tiles to change their colour comes from.
