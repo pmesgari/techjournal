@@ -5,11 +5,12 @@ theme = "cactus"
 ignoreFiles = ["content/templates/.*"]
 
 [params]
-description = "An Engineer's Path in the World of Infrastructure, Math and Computer Science"
+description = "Hey, welcome to my journal. Here I share my learnings, experiments and thoughts."
 mathjax = true
 css = ["css/custom.css"]
 logo = "images/quill-pen.png"
-postsOnHomePage = 5
+postsOnHomePage = 10
+mainSectionTitle = "Most Recent 10 Posts"
 
 [[menu.main]]
 name = "Home"
