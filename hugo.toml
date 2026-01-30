@@ -12,6 +12,7 @@ logo = "images/quill-pen.png"
 postsOnHomePage = 10
 mainSectionTitle = "Most Recent 10 Posts"
 
+
 [[menu.main]]
 name = "Home"
 url = "/"

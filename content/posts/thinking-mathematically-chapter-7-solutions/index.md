@@ -1,6 +1,6 @@
 ---
 title: "Thinking Mathematically: Chapter 7 Solutions"
-date: 2025-10-20
+date: 2025-10-21
 draft: false
 tags:
   - math
