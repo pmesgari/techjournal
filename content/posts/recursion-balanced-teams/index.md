@@ -10,7 +10,7 @@ keywords:
 ---
 ## Balanced Teams
 ❓[Problem](https://usaco.org/index.php?page=viewproblem2&cpid=378)
-💡[My Solution](https://github.com/pmesgari/thinking-algorithmically/blob/main/hash_tables/cd.c)
+💡[My Solution](https://github.com/pmesgari/thinking-algorithmically/blob/main/recursion/balanced_teams.c)
 
 ### The Problem
 

@@ -10,7 +10,7 @@ keywords:
 ---
 ## Secret Code
 ❓[Problem](https://usaco.org/index.php?page=viewproblem2&cpid=396)
-💡[My Solution](https://github.com/pmesgari/thinking-algorithmically/blob/main/hash_tables/cd.c)
+💡[My Solution](https://github.com/pmesgari/thinking-algorithmically/blob/main/recursion/secret_code.c)
 
 Recursive counting problems can be deceptive. They often look like simple brute-force exercises, but efficient solutions require finding the hidden structure. In this section, I'll break down the 'Secret Code' problem and the specific insight that helped me understand the recursive counting logic.
 ### The Problem
