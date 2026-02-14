@@ -12,7 +12,7 @@ keywords:
 ❓[Problem](https://usaco.org/index.php?page=viewproblem2&cpid=261)
 💡[My Solution](https://github.com/pmesgari/thinking-algorithmically/blob/main/recursion/breed_assignment.c)
 
-In this section we go over another recursive counting problem. The [[posts/recursion-balanced-teams/index]] problem is an example of partitioning in combinatorics. We understood that order didn't matter. In this problem we deal with assignment in combinatorics where each item has its own identity and order matters.
+In this section we go over another recursive counting problem. The [Balanced Teams](https://www.techjournal.nl/posts/recursion-balanced-teams/) problem is an example of partitioning in combinatorics. We understood that order didn't matter. In this problem we deal with assignment in combinatorics where each item has its own identity and order matters.
 
 ### The Problem
 
