@@ -11,6 +11,7 @@ css = ["css/custom.css"]
 logo = "images/quill-pen.png"
 postsOnHomePage = 10
 mainSectionTitle = "Most Recent 10 Posts"
+showAllPostsArchive = true
 
 
 [[menu.main]]
